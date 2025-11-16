@@ -1,75 +1,167 @@
 @import "tailwindcss";
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@theme {
+  /* Colors */
+  --color-yellow-dark: #c47f17;
+  --color-yellow: #dbac2c;
+  --color-yellow-light: #f1e9c9;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --color-purple-dark: #4b2995;
+  --color-purple: #8047f8;
+  --color-purple-light: #ebe5f9;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-base-title: #272221;
+  --color-base-subtitle: #403937;
+  --color-base-text: #574f4d;
+  --color-base-label: #8d8686;
+  --color-base-hover: #d7d5d5;
+  --color-base-button: #e6e5e5;
+  --color-base-input: #ededed;
+  --color-base-card: #f3f2f2;
+  --color-background: #fafafa;
+  --color-white: #ffffff;
+
+  /* Font Family */
+  --font-baloo: 'Baloo 2', cursive;
+  --font-roboto: 'Roboto', sans-serif;
+
+  /* Font Sizes */
+  --font-size-title-xl: 3rem;
+  --font-size-title-l: 2rem;
+  --font-size-title-m: 1.5rem;
+  --font-size-title-s: 1.25rem;
+  --font-size-title-xs: 1.125rem;
+
+  --font-size-text-l: 1.25rem;
+  --font-size-text-m: 1rem;
+  --font-size-text-s: 0.875rem;
+  --font-size-text-xs: 0.75rem;
+
+  --font-size-tag: 0.625rem;
+  --font-size-button-g: 0.875rem;
+  --font-size-button-m: 0.75rem;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
-  a:hover {
-    color: #747bff;
+  body {
+    font-family: var(--font-roboto);
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--color-background);
   }
 
-  button {
-    background-color: #f9f9f9;
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+
+  /* Baloo 2 - Títulos */
+  .baloo-title-xl {
+    font-family: var(--font-baloo);
+    font-size: 3rem;
+    line-height: 130%;
+    font-weight: 800;
+  }
+
+  .baloo-title-l {
+    font-family: var(--font-baloo);
+    font-size: 2rem;
+    line-height: 130%;
+    font-weight: 800;
+  }
+
+  .baloo-title-m {
+    font-family: var(--font-baloo);
+    font-size: 1.5rem;
+    line-height: 130%;
+    font-weight: 800;
+  }
+
+  .baloo-title-s {
+    font-family: var(--font-baloo);
+    font-size: 1.25rem;
+    line-height: 130%;
+    font-weight: 700;
+  }
+
+  .baloo-title-xs {
+    font-family: var(--font-baloo);
+    font-size: 1.125rem;
+    line-height: 130%;
+    font-weight: 700;
+  }
+
+  /* Roboto - Textos */
+  .roboto-text-l {
+    font-family: var(--font-roboto);
+    font-size: 1.25rem;
+    line-height: 130%;
+    font-weight: 400;
+  }
+
+  .roboto-text-l-bold {
+    font-family: var(--font-roboto);
+    font-size: 1.25rem;
+    line-height: 130%;
+    font-weight: 700;
+  }
+
+  .roboto-text-m {
+    font-family: var(--font-roboto);
+    font-size: 1rem;
+    line-height: 130%;
+    font-weight: 400;
+  }
+
+  .roboto-text-m-bold {
+    font-family: var(--font-roboto);
+    font-size: 1rem;
+    line-height: 130%;
+    font-weight: 700;
+  }
+
+  .roboto-text-s {
+    font-family: var(--font-roboto);
+    font-size: 0.875rem;
+    line-height: 130%;
+    font-weight: 400;
+  }
+
+  .roboto-text-xs {
+    font-family: var(--font-roboto);
+    font-size: 0.75rem;
+    line-height: 130%;
+    font-weight: 700;
+  }
+
+  .roboto-tag {
+    font-family: var(--font-roboto);
+    font-size: 0.625rem;
+    line-height: 130%;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .roboto-button-g {
+    font-family: var(--font-roboto);
+    font-size: 0.875rem;
+    line-height: 160%;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .roboto-button-m {
+    font-family: var(--font-roboto);
+    font-size: 0.75rem;
+    line-height: 160%;
+    font-weight: 400;
+    text-transform: uppercase;
   }
 }
